@@ -3,6 +3,7 @@ import Navigation from "@/app/_components/Navigation";
 
 import { Josefin_Sans } from "next/font/google";
 import "@/app/_styles/globals.css";
+import Header from "./_components/Header";
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -24,17 +25,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${josefin.className} bg-primary-950 text-primary-50 min-h-screen`}
+        className={`${josefin.className} bg-primary-950 text-primary-100 min-h-screen flex flex-col`}
       >
-        <header>
+        <Header />
+        {/* <header>
           <Logo />
           <Navigation />
-        </header>
-
-        <main>
-          {children}
-        </main>
-        <footer>Copyright by the wild Oasis</footer>
+        </header> */}
+        <div className="flex-1 px-8 py-12 bg-blue-200">
+          <main className="max-w-7xl mx-auto bg-red-500">
+            {children}
+          </main>
+        </div>
+        {/* <footer>Copyright by the wild Oasis</footer> */}
       </body>
     </html>
   );
